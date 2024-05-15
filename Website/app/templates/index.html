@@ -54,8 +54,10 @@
                     <div class="card-body">
                         <h5 class="card-title">Model Details</h5>
                         <p class="card-text">In the table below, you can find the parameters we used for our model.</p>
-                        <p class="card-text">The first parameter is Sequential. This is here because we use data augmentation. In each epoch, this layer will create new images from the ones it already has.</p>
-                        <p class="card-text">The techniques we use are random flip, random rotation and random zoom.</p>
+                        <p class="card-text">The first parameter is Sequential. This is here because we use data augmentation. In each epoch, this layer will create new images from the ones it already has. The techniques we use are random flip, random rotation and random zoom.</p>
+                        <p class="card-text">You can also see that we use 2 important layers, namely a Convolutional2D and a MaxPooling2D layer. The first one will recognize important features in the image, while the second one will take those important features for the next layer where the images are smaller by a factor of 2.</p>
+                        <p class="card-text">For the last layers we use a Flatten and Dense layers. The Flatten layer ensures that the neurons of 2D shape are transfored to a 1D shape, while the Dense layers are responsible for learning complex patterns and relationships in the input data.</p>
+                        <p class="card-text">As previously mentioned, we use data augmentation for generating more images for the model. We have used the synthetic data for training and testing the model where we have used a 80-20 distribution. The normalization of the images will take place in the model it self.</p>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
@@ -133,39 +135,39 @@
                             </thead>
                             <tbody class="table-group-divider">
                                 <tr>
-                                    <td>Optimizer (Gradient Descent)</td>
-                                    <td>adam</td>
-                                    <td>test</td>
+                                    <td>Optimizer</td>
+                                    <td>Adam (Adaptive Moment Estimation)</td>
+                                    <td>To minimize the loss function, we employ the Adam optimization algorithm. Adam is an iterative optimization method that effectively reduces the loss function during training. It combines the advantages of both RMSprop and Stochastic Gradient Descent (SGD), providing an efficient and robust approach to optimization.</td>
                                 </tr>
                                 <tr>
                                     <td>Learning Rate</td>
                                     <td>0.001</td>
-                                    <td>test</td>
+                                    <td>Regulates how frequently the model's weights are changed during training. So it determines the size of the steps taken towards minimizing the loss function during each iteration of the algorithm.</td>
                                 </tr>
                                 <tr>
                                     <td>Batch Size</td>
                                     <td>40</td>
-                                    <td>test</td>
+                                    <td>Refers to the number of training examples utilized in one iteration of the training process. It determines how many samples are processed before the model parameters are updated.</td>
                                 </tr>
                                 <tr>
                                     <td>Number of Epochs</td>
                                     <td>45</td>
-                                    <td>test</td>
+                                    <td>Refers to one complete pass through the entire training dataset. During this pass, the netowrk processes the data in batches, updates its weights, and learns from the data. This value must not be to high or to low otherwhise it will lead to under- or overfitting.</td>
                                 </tr>
                                 <tr>
                                     <td>Activation Function</td>
-                                    <td>relu</td>
-                                    <td>test</td>
+                                    <td>ReLu (Rectified Linear Unit - (max(0, x)))</td>
+                                    <td>A mathematical function applied to the output of a neuron. It takes the weighted sum of inputs plus a bias and produces an output that serves as the input to the next layer. Without these the model would simply be a series of linear transformations. So in general it learns complex patterns in the data.</td>
                                 </tr>
                                 <tr>
-                                    <td>Kernel Size</td>
+                                    <td>Kernel Size (Conv2D)</td>
                                     <td>3x3</td>
-                                    <td>test</td>
+                                    <td>It is also known as a filter that is a small matrix of weights used to scan over the input data, performing convolution operations. The size refers the the dimensions of this matrix. The smaller the dimensions are the more details it will capture.</td>
                                 </tr>
                                 <tr>
-                                    <td>Amount of Filters</td>
+                                    <td>Amount of Filters (Conv2D)</td>
                                     <td>16, 32, 64</td>
-                                    <td>test</td>
+                                    <td>The more filters in a convolutional layer determines the number of distinct features the layer can learn to recognize.</td>
                                 </tr>
                             </tbody>
                         </table>
