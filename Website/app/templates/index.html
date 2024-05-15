@@ -22,18 +22,17 @@
         </header>
         <div class="container my-3 text-center">
             <div class="row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <div class="card">
+                <div class="col">
+                    <div class="card same-height">
                         <div class="card-body">
                             <h5 class="card-title">Tool Classifier</h5>
                             <p class="card-text">This classifier has been created to identify tools in a given image. The tools we currently try to recognize are a flat screwdriver,
-                                a combi wrench, a hammer, and a spanner wrench.</p>
-                            <p class="card-text"></p>
+                                a combi wrench, a hammer, and a wrench.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="card">
+                <div class="col">
+                    <div class="card same-height">
                         <div class="card-body">
                             <h5 class="card-title">Upload Image</h5>
                             <p class="card-text">Please upload an image so we can classify the tool present in it.</p>
@@ -47,6 +46,129 @@
                                 </div>
                             </form>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Model Details</h5>
+                        <p class="card-text">In the table below, you can find the parameters we used for our model.</p>
+                        <p class="card-text">The first parameter is Sequential. This is here because we use data augmentation. In each epoch, this layer will create new images from the ones it already has.</p>
+                        <p class="card-text">The techniques we use are random flip, random rotation and random zoom.</p>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Layer (type)</th>
+                                    <th scope="col">Output Shape</th>
+                                    <th scope="col">Param #</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                <tr>
+                                    <td>Sequential</td>
+                                    <td>(None, 256, 256, 3)</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Rescaling</td>
+                                    <td>(None, 256, 256, 3)</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Conv2D</td>
+                                    <td>(None, 256, 256, 16)</td>
+                                    <td>448</td>
+                                </tr>
+                                <tr>
+                                    <td>MaxPooling2D</td>
+                                    <td>(None, 128, 128, 16)</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Conv2D</td>
+                                    <td>(None, 128, 128, 32)</td>
+                                    <td>4,640</td>
+                                </tr>
+                                <tr>
+                                    <td>MaxPooling2D</td>
+                                    <td>(None, 64, 64, 32)</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Conv2D</td>
+                                    <td>(None, 64, 64, 64)</td>
+                                    <td>18,496</td>
+                                </tr>
+                                <tr>
+                                    <td>MaxPooling2D</td>
+                                    <td>(None, 32, 32, 64)</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Flatten</td>
+                                    <td>(None, 65536)</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Dense</td>
+                                    <td>(None, 128)</td>
+                                    <td>8,388,736</td>
+                                </tr>
+                                <tr>
+                                    <td>Dense</td>
+                                    <td>(None, 4)</td>
+                                    <td>516</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="card-text">The hyperparameters we used can be found in the table below.</p>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Parameter Name</th>
+                                    <th scope="col">Parameter Value</th>
+                                    <th scope="col">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                <tr>
+                                    <td>Optimizer (Gradient Descent)</td>
+                                    <td>adam</td>
+                                    <td>test</td>
+                                </tr>
+                                <tr>
+                                    <td>Learning Rate</td>
+                                    <td>0.001</td>
+                                    <td>test</td>
+                                </tr>
+                                <tr>
+                                    <td>Batch Size</td>
+                                    <td>40</td>
+                                    <td>test</td>
+                                </tr>
+                                <tr>
+                                    <td>Number of Epochs</td>
+                                    <td>45</td>
+                                    <td>test</td>
+                                </tr>
+                                <tr>
+                                    <td>Activation Function</td>
+                                    <td>relu</td>
+                                    <td>test</td>
+                                </tr>
+                                <tr>
+                                    <td>Kernel Size</td>
+                                    <td>3x3</td>
+                                    <td>test</td>
+                                </tr>
+                                <tr>
+                                    <td>Amount of Filters</td>
+                                    <td>16, 32, 64</td>
+                                    <td>test</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
